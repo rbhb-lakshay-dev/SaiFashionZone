@@ -23,17 +23,17 @@ const Shop = ({ category }) => {
 
   const categories = [
     {
-      name: "Books",
+      name: "Sarees",
       // img: "https://tse2.mm.bing.net/th?id=OIP.uyi1Q5l2H8Zf9APJQplJfQHaEK&pid=Api&P=0&h=180",
       img: "https://thesstudioonline.com/cdn/shop/articles/paripoorna-blog-6-65c49bf9cc585.webp?v=1707384169&width=700",
     },
     {
-      name: "Gift Boxes",
+      name: "Girls Wear",
       // img: "http://images4.fanpop.com/image/photos/22200000/Christmas-gifts-christmas-gifts-22231235-2048-2048.jpg",
       img: "https://3.imimg.com/data3/ND/MH/MY-8335494/designer-kids-mannequins-1000x1000.jpg",
     },
     {
-      name: "Stationery",
+      name: "Boys Wear",
       img: "https://m.media-amazon.com/images/I/61ge8BmxqRL._AC_SL1500_.jpg",
     },
     {
@@ -129,7 +129,7 @@ const Shop = ({ category }) => {
   return (
     <>
       <Helmet>
-        <title>Shop | Mera Bestie</title>
+        <title>Shop | SaiFashionZone by Raiba</title>
       </Helmet>
       <div className="bg-gradient-to-b from-pink-50 to-pink-100 min-h-screen">
         <Navbar />
@@ -420,7 +420,7 @@ const Shop = ({ category }) => {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
             <div className="flex flex-col items-center md:items-start">
               <h4 className="text-3xl font-extrabold text-pink-800 mb-4">
-                MERA Bestie
+                SaiFashionZone by Raiba
               </h4>
               <p className="text-gray-600 mb-4 text-center md:text-left">
                 Your one-stop destination for thoughtful and unique gifts.
@@ -438,7 +438,7 @@ const Shop = ({ category }) => {
               <p className="text-gray-600">
                 3181 Street Name, City, India
                 <br />
-                Email: support@merabestie.com
+                Email: support@saifashionzone.com
                 <br />
                 Phone: +91 1234567890
               </p>

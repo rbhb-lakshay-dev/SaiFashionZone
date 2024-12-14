@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 
 import Navbar from "../../components/user/navbar/navbar";
 import Footer from "../../components/user/footer/footer";
+import ClubbedBox from "./club";
 
 // Scroll Progress Bar Component
 const ScrollProgress = () => {
@@ -51,7 +52,15 @@ const HomePage = () => {
       title: "Sarees",
       description:
         "A saree isn't just an outfit; it's a symbol of grace and confidence woven into every fold.",
-      category: "Stationery",
+      category: "Ladies wear",
+    },
+    {
+      img: "https://img.freepik.com/premium-photo/collection-men-s-clothing-including-jacket-pants-hat_793585-43.jpg?w=740",
+      title: "Mens Wear",
+      description:
+        "This encompasses a wide variety of garments including shirts, trousers, jackets, suits, sweaters",
+      // description: "Transform spaces with our sophisticated decor books.",
+      category: "Mens",
     },
     {
       // img: "https://tse1.mm.bing.net/th?id=OIP.EYAqW5p_HzCoXKq1dXvGyQHaFj&pid=Api&P=0&h=180",
@@ -69,14 +78,6 @@ const HomePage = () => {
         "Boys' wear collections offer a wide range of styles and designs, encompassing both casual and formal wear.",
       // description: "Transform spaces with our sophisticated decor books.",
       category: "Books",
-    },
-    {
-      img: "https://img.freepik.com/premium-photo/collection-men-s-clothing-including-jacket-pants-hat_793585-43.jpg?w=740",
-      title: "Mens Wear",
-      description:
-        "This encompasses a wide variety of garments including shirts, trousers, jackets, suits, sweaters",
-      // description: "Transform spaces with our sophisticated decor books.",
-      category: "Mens",
     },
   ];
 
@@ -164,7 +165,7 @@ const HomePage = () => {
             </motion.div>
 
             <motion.div
-              className="grid gap-10 md:grid-cols-3"
+              className="grid gap-10 md:grid-cols-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -205,6 +206,10 @@ const HomePage = () => {
                   </motion.div>
                 </Link>
               ))}
+              <ClubbedBox title="Saree" />
+              <ClubbedBox title="Mens" />
+              <ClubbedBox title="Girls" />
+              <ClubbedBox title="Boys" />
             </motion.div>
           </div>
         </section>

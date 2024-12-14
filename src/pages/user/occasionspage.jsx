@@ -1,31 +1,106 @@
-import { useState } from 'react';
-import { Search, Cake, Heart, Gift, Sparkles, Music, Utensils, GraduationCap } from 'lucide-react';
-import Navbar from '../../components/user/navbar/navbar';
+import { useState, useEffect } from "react";
+import {
+  Search,
+  Cake,
+  Heart,
+  Gift,
+  Sparkles,
+  Music,
+  Utensils,
+  GraduationCap,
+} from "lucide-react";
+import Navbar from "../../components/user/navbar/navbar";
 import { Helmet } from "react-helmet";
 
 const occasions = [
-  { id: 1, title: 'Birthdays', Icon: Cake },
-  { id: 2, title: 'Weddings', Icon: Heart },
-  { id: 3, title: 'Holidays', Icon: Gift },
-  { id: 4, title: 'Anniversaries', Icon: Sparkles },
-  { id: 5, title: 'Parties', Icon: Music },
-  { id: 6, title: 'Dinner Events', Icon: Utensils },
-  { id: 7, title: 'Graduations', Icon: GraduationCap },
-  { id: 8, title: 'Other Occasions', Icon: Gift },
+  { id: 1, title: "Birthdays", Icon: Cake },
+  { id: 2, title: "Weddings", Icon: Heart },
+  { id: 3, title: "Holidays", Icon: Gift },
+  { id: 4, title: "Anniversaries", Icon: Sparkles },
+  { id: 5, title: "Parties", Icon: Music },
+  { id: 6, title: "Dinner Events", Icon: Utensils },
+  { id: 7, title: "Graduations", Icon: GraduationCap },
+  { id: 8, title: "Other Occasions", Icon: Gift },
 ];
 
 export default function OccasionsPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [loadMore, setLoadMore] = useState(6);
 
   const filteredOccasions = occasions.filter((occasion) =>
     occasion.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const filterProducts = (category) => {
+    // setSelectedCategory(category);
+    if (category === "all") {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(
+        (product) => product.category === category
+      );
+      setFilteredProducts(filtered);
+    }
+    setLoadMore(6);
+  };
+
+  const sortProducts = (sortBy) => {
+    let sorted = [...filteredProducts];
+    switch (sortBy) {
+      case "price":
+        sorted.sort((a, b) => {
+          const priceA = parseFloat(a.price.split("₹")[2]?.trim() || 0);
+          const priceB = parseFloat(b.price.split("₹")[2]?.trim() || 0);
+          return priceA - priceB;
+        });
+        break;
+      case "popularity":
+      case "rating":
+        sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+        break;
+      default:
+        break;
+    }
+    setFilteredProducts(sorted);
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          "https://ecommerse-assingment-backend.onrender.com/get-product"
+        );
+        const data = await response.json();
+        console.log(data.products);
+        if (data.success) {
+          const validProducts = data.products.filter(
+            (product) =>
+              product.name &&
+              product.price &&
+              product.img &&
+              product.category &&
+              product._id &&
+              (product.visibility === "on" || product.visibility === "true")
+          );
+          console.log(validProducts);
+          setProducts(validProducts);
+          setFilteredProducts(validProducts);
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <>
-    <Helmet>
-      <title>Occasions | Mera Bestie</title>
-    </Helmet>
+      <Helmet>
+        <title>Occasions | Mera Bestie</title>
+      </Helmet>
       <Navbar />
       <div className="min-h-screen bg-pink-50 py-12 px-4 sm:px-6 lg:px-8 animate-fadeIn">
         <div className="max-w-7xl mx-auto">
@@ -74,7 +149,9 @@ function OccasionCard({ title, Icon, className }) {
       className={`bg-white p-6 rounded-lg shadow-md text-center ${className}`}
     >
       <Icon className="w-12 h-12 text-pink-500 mx-auto mb-4 animate-pulse" />
-      <h3 className="text-lg font-semibold text-gray-700 animate-flipIn">{title}</h3>
+      <h3 className="text-lg font-semibold text-gray-700 animate-flipIn">
+        {title}
+      </h3>
     </div>
   );
 }

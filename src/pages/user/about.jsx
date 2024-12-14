@@ -6,10 +6,10 @@ import { Helmet } from "react-helmet";
 
 function About() {
   useEffect(() => {
-    AOS.init({ 
+    AOS.init({
       duration: 1000,
-      once: true,  // Animations only happen once
-      offset: 50   // Trigger animations slightly earlier
+      once: true, // Animations only happen once
+      offset: 50, // Trigger animations slightly earlier
     });
   }, []);
 
@@ -32,9 +32,12 @@ function About() {
     <>
       <Helmet>
         <title>About Us | Mera Bestie</title>
-        <meta name="description" content="Learn about Mera Bestie's journey, vision, and mission." />
+        <meta
+          name="description"
+          content="Learn about Mera Bestie's journey, vision, and mission."
+        />
       </Helmet>
-      <Navbar />    
+      <Navbar />
       <div className="min-h-screen bg-gradient-to-b from-pink-100 to-pink-50">
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
           {/* Header Section */}
@@ -43,70 +46,74 @@ function About() {
               <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
                 About Our Company
               </span>
-              <span className="text-gray-800 block text-3xl mt-2">Empowering Connections, Inspiring Growth</span>
+              <span className="text-gray-800 block text-3xl mt-2">
+                Empowering Connections, Inspiring Growth
+              </span>
             </h1>
           </div>
 
           {/* About Sections */}
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* About Our Company Section */}
-            <SectionCard 
-              title="About Our Company" 
-              dataAos="fade-right"
-            >
+            <SectionCard title="About Our Company" dataAos="fade-right">
               <p className="text-gray-600 mb-4 leading-relaxed">
-                At Mera Bestie, we are more than just a company. We are a community dedicated to creating meaningful connections and providing exceptional experiences.
+                At Mera Bestie, we are more than just a company. We are a
+                community dedicated to creating meaningful connections and
+                providing exceptional experiences.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our journey is driven by passion, innovation, and a commitment to understanding and meeting the unique needs of our clients.
+                Our journey is driven by passion, innovation, and a commitment
+                to understanding and meeting the unique needs of our clients.
               </p>
             </SectionCard>
 
             {/* Why Choose Us Section */}
-            <SectionCard 
-              title="Why Choose Us?" 
-              dataAos="fade-left"
-            >
+            <SectionCard title="Why Choose Us?" dataAos="fade-left">
               <p className="text-gray-600 mb-4 leading-relaxed">
-                We stand out through our personalized approach, cutting-edge solutions, and unwavering dedication to customer satisfaction.
+                We stand out through our personalized approach, cutting-edge
+                solutions, and unwavering dedication to customer satisfaction.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our team brings together diverse expertise, creative thinking, and a genuine passion for delivering excellence.
+                Our team brings together diverse expertise, creative thinking,
+                and a genuine passion for delivering excellence.
               </p>
             </SectionCard>
 
             {/* Objective Section */}
-            <SectionCard 
-              title="Objectives" 
+            <SectionCard
+              title="Objectives"
               dataAos="fade-right"
               className="lg:col-span-2"
             >
               <ul className="text-gray-600 leading-relaxed list-disc list-inside space-y-2">
                 <li>Drive innovation that transforms customer experiences</li>
                 <li>Foster a culture of continuous learning and growth</li>
-                <li>Create sustainable solutions that make a real difference</li>
-                <li>Build long-lasting relationships based on trust and mutual respect</li>
+                <li>
+                  Create sustainable solutions that make a real difference
+                </li>
+                <li>
+                  Build long-lasting relationships based on trust and mutual
+                  respect
+                </li>
                 <li>Continuously push the boundaries of what's possible</li>
               </ul>
             </SectionCard>
 
             {/* Vision Section */}
-            <SectionCard 
-              title="Vision" 
-              dataAos="fade-right"
-            >
+            <SectionCard title="Vision" dataAos="fade-right">
               <p className="text-gray-600 leading-relaxed">
-                To be the leading platform that connects people, inspires innovation, and creates transformative experiences that empower individuals and businesses.
+                To be the leading platform that connects people, inspires
+                innovation, and creates transformative experiences that empower
+                individuals and businesses.
               </p>
             </SectionCard>
 
             {/* Mission Section */}
-            <SectionCard 
-              title="Mission" 
-              dataAos="fade-left"
-            >
+            <SectionCard title="Mission" dataAos="fade-left">
               <p className="text-gray-600 leading-relaxed">
-                Our mission is to leverage technology and human-centric design to solve complex challenges, create meaningful connections, and drive positive change in the world.
+                Our mission is to leverage technology and human-centric design
+                to solve complex challenges, create meaningful connections, and
+                drive positive change in the world.
               </p>
             </SectionCard>
           </div>
@@ -115,7 +122,7 @@ function About() {
           <div className="mt-16 text-center">
             <img
               src="src/assets/bg shop.png"
-              alt="Mera Bestie Team"
+              alt="Sai Fashion Zone Team"
               className="rounded-2xl shadow-2xl mx-auto max-w-4xl h-auto transform transition duration-500 hover:scale-[1.01]"
             />
           </div>
@@ -126,10 +133,13 @@ function About() {
               <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
                 Join Our Journey
               </span>
-              <span className="text-gray-800 block text-2xl mt-2">Together, We Create Extraordinary Experiences</span>
+              <span className="text-gray-800 block text-2xl mt-2">
+                Together, We Create Extraordinary Experiences
+              </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              At Mera Bestie, every interaction is an opportunity to inspire, connect, and grow. We invite you to be part of our story.
+              At Mera Bestie, every interaction is an opportunity to inspire,
+              connect, and grow. We invite you to be part of our story.
             </p>
           </div>
         </div>
